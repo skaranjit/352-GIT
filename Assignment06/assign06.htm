@@ -1,0 +1,123 @@
+<html>
+<body>
+<h1>CSIS 352 Spring 2020 Assignment 6</h1>
+<h2>Introduction</h2>
+<p>
+In this assignment, you will implement methods to support a solution to the
+<a href="https://en.wikipedia.org/wiki/Josephus_problem">Josephus problem</a>.
+<h2>Purpose and Objectives</h2>
+The purpose of the code is to implement a class to facilitate a solution
+to the Josephus problem.
+The purpose of having you do this as an assignment is to ensure that you can correctly do the following:
+<ul>
+<li>use namespaces</li>
+<li>use exceptions</li>
+<li>write copy constructors</li>
+<li>write destructors</li>
+<li>write overloaded assignment operators</li>
+<li>think about how a larger problem and the smaller pieces of it relate</li>
+</ul>
+<h2>Stakeholders</h2>
+<p>
+If you were to be in the situation that Josephus hypothetically was,
+this could be a matter of life and death for you.
+Have a good implementation ready to prevent your death in the future.
+(Note: this section is intended to have humor.
+Read the background for more information,
+and contact the instructor if you have any questions
+about what is humorous versus not humorous in this section.)
+<h2>Where</h2>
+<p>
+This will be tested on smaug, and must execute there.
+<h2>Tasks</h2>
+The following files are provided for you:
+<ul>
+<li><a href="makefile">makefile</a></li>
+<li><a href="josephus.h">josephus.h</a></li>
+<li><a href="main.cpp">main.cpp</a></li>
+<li><a href="testinput.txt">testinput.txt</a></li>
+</ul>
+<p>
+The following files are the ones that you are to write:
+<ul>
+<li>josephus.cpp</li>
+<li>README</li>
+<li>testinput.txt (editing this one is optional)</li>
+</ul>
+Do not write any other files.
+<p>
+For background, read about the
+<a href="https://en.wikipedia.org/wiki/Josephus_problem">Josephus problem</a>.
+We will be implementing a generalized class
+that supports multiple variants of the problem.
+For more information, see the provided header file.
+If you have any questions, feel free to ask the instructor in class.
+<p>
+Make no changes to the main.cpp.
+If there are parts that it calls that you have not implemented,
+have them throw appropriate exceptions
+(see <a href="https://github.com/andrew-chen/csis352/tree/master/examples/exception">
+https://github.com/andrew-chen/csis352/tree/master/examples/exception</a>
+for examples of appropriate exceptions and how to throw them).
+<p>
+You are writing josephus.cpp and implementing all functionality found in josephus.h .
+It is your responsibility to figure out how to test methods in found in josephus.h
+that are not called in main.cpp.
+<h2>Milestones and Schedule</h2>
+<ol>
+<li>End of class on the day this is announced: Understand the project:
+read through everything and be sure you have an understanding of how to do the assignment,
+asking any questions that you can think of during class
+</li>
+<li>Before the last class day before this is due:
+Do your best to complete the assignment without assistance from anyone/anything
+aside from provided resources.
+</li>
+<li>During class on the day this is due:
+Get whatever additional assistance you need from the instructor
+to complete the assignment.
+</li>
+<li>End of the day on the day this is due: submit the assignment appropriately.
+</li>
+</ol>
+<h2>Deliverables</h2>
+<p>
+A tar'd and gz'd file that consists of the files that you wrote,
+and sufficient files provided to build it.
+See <a href="handingin.htm">Submission instructions</a>
+and <a href="documentation.htm">Documentation instructions</a> for more details.
+<h2>Standards and Testing</h2>
+<p>
+Your code will be tested in the directory you submit with the files you submit.
+Additionally, your josephus.cpp file will be tested separately in a different environment,
+for more thorough testing.
+If you make any assumptions about input,
+be sure to check those assumptions and throw exceptions as appropriate.
+Multiple bizarre input possibilities will be provided
+during the independent testing of josephus.cpp
+<h2>Known Issues and Risks</h2>
+<ul>
+<li>Array out of bounds when calling is_alive</li>
+<li>0 or negative values for the number of people or other arguments</li>
+<li>Array a ridiculously large size</li>
+<li>Calling iterate after it has already thrown an exception</li>
+<li>Assigning multiple different instances to the same copy</li>
+<li>Making multiple copies of the same original</li>
+<li>Assigning to/from heap allocated versus stack allocated instances</li>
+<li>Leaving debug code in when it shouldn't be there
+(nothing should be output to cout or cerr unless directions explicitly say so)</li>
+<li>Because arrays are 0 indexed, 
+but the problem as stated in the Wikipedia entry assumes 
+standard human language nomenclature of being one-indexed, 
+there's a great possibility for off-by-one errors, 
+so one needs to be especially cognizant of this in the "iterate" method.</li>
+</ul>
+<h2>Success</h2>
+<p>
+Success will properly submitted deliverables passing all of the tests.
+<h2>Remaining</h2>
+<p>
+If there are any details not covered in this document, please ask the instructor during class.
+</body>
+</html>
+
