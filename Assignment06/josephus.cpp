@@ -1,5 +1,7 @@
 #include "josephus.h"
 #include <iostream>
+#include <array>
+
 using namespace JosephusProblem;
 using namespace std;
 
@@ -7,7 +9,7 @@ Josephus::Josephus(int number_of_people,int skip){
     count = number_of_people;
     skip_amount = skip;
     position = 0;
-    iteration = 1;
+    iteration = 0;
     people = new bool [count];
     for (int i = 0; i <count ; i++){
         people[i] = true;
@@ -48,39 +50,45 @@ bool Josephus::is_alive(int who) const{
 }
 
 int Josephus::size() const{
-    return count;
+    return (count);
+    
 }
 
 void Josephus::iterate(){
-    for (iteration;iteration<=count;iteration++){
-        position = (position+skip_amount)%iteration;
-    }
+    
+    cout<<"Iteration" << "";
+    cout << this->size();
+    cout << "Debug"<<endl;
+    int num = 0;
+    int ct = count;
 
-    // while (ct > 1){
-    //     if(position >= ct){
-    //         position = 0;
-    //     }
-    //     if ( iteration == skip_amount){
-    //         iteration = 1;
-    //         people[position] = false;
-    //         ct -=1;
-    //     }
-    //     else{
-    //         position++;
-    //         iteration++;
-    //     }
-    // }
-    for (int i = 0;i<count;i++){
-        if(i != position){
-            people[i] = false;
+    while (ct > 1){
+        while(people[position] == false){
+            position +=1;
+            if(position > count){
+                position = 0;
+            }
         }
-    }
-    for(int i = 0;i<count;i++){
-        cout<<people[i]<<endl;
-    }
-    throw (JosephusException(position+1));
-
-}
+        if(num == (skip_amount -1)){
+            people[position] = false;
+            cout << "Person number " << position << " is out."<<endl;
+            ct --;
+        }
+        num ++;
+        if (num == skip_amount){
+            num = 0;
+        }
+        position ++;
+        if (position == count){
+            position =0;
+        }
+        }
+    for (int i = 0; i < count;i++){
+        if(people[i] == true){
+            throw(JosephusException(i));
+        }
+    } 
+}      
 JosephusException::JosephusException(int which_person){
     person_index = which_person;
 }
