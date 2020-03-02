@@ -55,39 +55,73 @@ int Josephus::size() const{
 }
 
 void Josephus::iterate(){
+    int ct =0;
+    cout<<"Iteration" << " ";
+    cout << iteration<<endl;
+    int num = position;
     
-    cout<<"Iteration" << "";
-    cout << this->size();
-    cout << "Debug"<<endl;
-    int num = 0;
-    int ct = count;
+        for(int i=0;i<skip_amount-1;i++){
+            num +=1;
+            while (people[num] == false){
+                num+=1;
+                if (num >= count){
+                    num = 0;
+                }
+            }
+            
+        }
+        cout <<"Debuging before: "<< num<<endl;
+        if (num < count){
+            while (people[num]==false){
+                num += 1;
+            }
+            cout <<"Debuging after1: "<< num<<endl;
+        
+        }
+        else{
+            num -= count;
+            while (people[num]==false){
+                if (num >= count){
+                    num = 0;
+                }
+                num +=1;
+            }
+            cout <<"Debuging after2: "<< num<<endl;
+        
+        }
+        cout << count<<" " << num<<endl;
+        people[num] = false;
+        cout <<"Person in "<<num<< " position died"<<endl;
+        if(num+1 >= count){
+            num = position+skip_amount - count;
+            num = num -1;
+        }
+        position = num;
+        if (position >= count){
+            position = 0;
+            cout << "Debuging Position: "<< position<<endl;
 
-    while (ct > 1){
+        }
+        for (int i=0;i<count;i++){
+            cout << people[i]<<endl;
+        }
         while(people[position] == false){
             position +=1;
-            if(position > count){
+            if(position >= count){
                 position = 0;
+    
             }
+            cout << "Debug2: "<< position<<endl;
         }
-        if(num == (skip_amount -1)){
-            people[position] = false;
-            cout << "Person number " << position << " is out."<<endl;
-            ct --;
-        }
-        num ++;
-        if (num == skip_amount){
-            num = 0;
-        }
-        position ++;
-        if (position == count){
-            position =0;
-        }
-        }
+        iteration ++;
     for (int i = 0; i < count;i++){
         if(people[i] == true){
-            throw(JosephusException(i));
+            ct ++;
         }
-    } 
+    }
+    if (ct == 1){
+        throw(JosephusException(position));
+    }
 }      
 JosephusException::JosephusException(int which_person){
     person_index = which_person;

@@ -41,7 +41,7 @@ int main() {
 			cout << "testing assignment operator" << endl;
 			Josephus j3(5,2);
 			j3 = j2;
-			cout << "Entqer a non-zero number to continue:" << endl;
+			cout << "Enter a non-zero number to continue:" << endl;
 			cin >> go_on;
 		} while (go_on);
 	}
