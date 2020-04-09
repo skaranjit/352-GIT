@@ -1,0 +1,115 @@
+<html>
+<body>
+<h1>CSIS 352 Spring 2020 Assignment 8</h1>
+<h2>Introduction</h2>
+<p>
+In this assignment, you will rewrite Assignment 3 so that it uses a tree, and polymorphism, instead of stacks and queues.
+<h2>Purpose and Objectives</h2>
+The purpose of the code is to implement code to evaluate simple arithmetic expressions.
+The purpose of having you do this as an assignment is to ensure that you can correctly do the following:
+<ul>
+<li>work with polymorphism (and thus, inheritance)</li>
+<li>work with trees</li>
+<li>reformulate code in a different way</li>
+<li>think about how a larger problem and the smaller pieces of it relate</li>
+</ul>
+<h2>Stakeholders</h2>
+<p>
+You:
+This is the beginning of some understanding of some other concepts, and could be quite useful if you were to extend it further.
+<p>
+Me:
+This covers some key concepts that you need exposure to
+<h2>Where</h2>
+<p>
+This will be tested on smaug, and must execute there.
+<h2>Tasks</h2>
+The following files are provided for you:
+<ul>
+<li>The work that you did on Assignment 3</li>
+<li>Resources common to previous assignments</li>
+<li><a href="ch12-1.cpp">ch12-1.cpp</a></li>
+</ul>
+<p>
+You may structure your code in any way you want, with as few or as many .cpp or .h files as you see fit. You must have the following:
+<ul>
+<li>A README that explains how to run your program and what to expect from it</li>
+<li>A makefile that supports the following:
+<ul>
+<li>make</li>
+<li>make clean</li>
+<li>make test</li>
+</ul>
+</li>
+<li>
+It is expected that I should be able to type "make clean; make; make test" and then have your program run as you say it should in your README file.
+</li>
+</ul>
+
+</ul>
+<p>
+If there are bizarre situations that you realize certain methods may find themselves in, then 
+have them throw appropriate exceptions
+(see <a href="https://github.com/andrew-chen/csis352/tree/master/examples/exception">
+https://github.com/andrew-chen/csis352/tree/master/examples/exception</a>
+for examples of appropriate exceptions and how to throw them).
+<p>
+It is your responsibility to figure out how to test whatever code you write.
+<h2>Milestones and Schedule</h2>
+<ol>
+<li>End of class on the next non-test class day this is announced: Understand the project:
+read through everything and be sure you have an understanding of how to do the assignment,
+asking any questions that you can think of during class
+</li>
+<li>Before the last class day before this is due:
+Do your best to complete the assignment without assistance from anyone/anything
+aside from provided resources.
+</li>
+<li>During class on the day this is due:
+Get whatever additional assistance you need from the instructor
+to complete the assignment.
+</li>
+<li>End of the day on the day this is due: submit the assignment appropriately.
+</li>
+</ol>
+<h2>Deliverables</h2>
+<p>
+A tar'd and gz'd file that consists of the files that you wrote,
+and sufficient files provided to build it.
+Follow the submission and documentation instructions that have been common to all previous assignments.
+<h2>Standards and Testing</h2>
+<p>
+<ul>
+<li>Your program should function comparable to the end result of Assignment 3: you should be able to read in an arithmetic expression, comparable to what Assignment 3 was supposed to do, and then evaluate it and print it out.
+</li><li>
+You will need to support operators other than what is provided by the provided file.
+</li><li>
+You can use the token class from Assignment 3 if you want to.
+</li><li>
+You may use the stack, queue, and other stuff from Assignment 3 if you want to. 
+</li><li>
+You must use a tree with polymorphism as found in the example code.
+</li><li>
+Your code will be tested in the directory you submit with the files you submit.
+</li><li>
+If you make any assumptions about input,
+be sure to document those assumptions in your README and throw exceptions as appropriate, and catch them too and provide meaningful output when doing so.
+</li><li>
+Multiple bizarre input possibilities will be provided
+during the testing of your program.
+</ul>
+<h2>Known Issues and Risks</h2>
+<ul>
+<li>Invalid format input.</li>
+<li>Memory leaks</li>
+<li>Dangling pointers</li>
+</ul>
+<h2>Success</h2>
+<p>
+Success will properly submitted deliverables passing all of the tests.
+<h2>Remaining</h2>
+<p>
+If there are any details not covered in this document, please ask the instructor during class.
+</body>
+</html>
+
