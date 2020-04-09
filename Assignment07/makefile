@@ -14,7 +14,11 @@
 # This allows you to write the rules and then have the installer 
 # specify the appropriate compile tool.
 
+<<<<<<< HEAD
 CC = g++ 
+=======
+CC = g++ -std=c++11
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
 
 # The OBJECTS macro indicates all the .o files necessary to "build
 # your executable ... to simplify later lines

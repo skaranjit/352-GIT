@@ -1,5 +1,6 @@
 #include <iostream>
 #include "circularqueue.h"
+<<<<<<< HEAD
 #include "exception.h"
 #include <cassert>
 using namespace std;
@@ -30,6 +31,28 @@ template<class T>
 CircularQueue<T>::~CircularQueue(){
     destroyqueue();
     
+=======
+
+using namespace std;
+template<class T>
+CircularQueue<T>::CircularQueue() {
+      current = NULL;
+
+}
+template<class T>
+CircularQueue<T>::~CircularQueue(){
+    node * tmp;
+    while (current != NULL){
+        tmp = current;
+        while (current != NULL){
+            tmp = current;
+            current=current->prev;
+            delete tmp;
+        }
+        current = current->next;
+        delete tmp;
+    }
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
 }
 
 template<class T>
@@ -39,6 +62,7 @@ bool CircularQueue<T>::is_empty(){
 
 template<class T>
 void CircularQueue<T>::next(){
+<<<<<<< HEAD
     if(current->next != NULL){
         current = current->next;
     }
@@ -47,10 +71,14 @@ void CircularQueue<T>::next(){
     
     }
     
+=======
+    current = current->next;
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
 }
 
 template<class T>
 void CircularQueue<T>::prev(){
+<<<<<<< HEAD
     if(current->prev != NULL)
     {
         current = current->prev;
@@ -59,6 +87,9 @@ void CircularQueue<T>::prev(){
         throw(JosephusException());
     
     }
+=======
+    current = current->prev;
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
 }
 
 template<class T>
@@ -72,16 +103,27 @@ void CircularQueue<T>::add_after(T& temp){
     newNode = new node;
     assert(newNode != NULL);
     newNode->item = temp;
+<<<<<<< HEAD
    newNode->next = NULL;
    newNode->prev = current;
+=======
+    newNode->next = NULL;
+    newNode->prev = NULL;
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
     if(is_empty()){
         current=newNode;
     }
     else{
         current->next = newNode;
+<<<<<<< HEAD
        // current->next->prev = current;
     }
     count ++;
+=======
+    }
+    
+
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
 }
 
 template<class T>
@@ -90,6 +132,7 @@ void CircularQueue<T>::add_before(T& temp){
     newNode = new node;
     assert(newNode != NULL);
     newNode->item = temp;
+<<<<<<< HEAD
     newNode->next = current;
     newNode->prev = NULL;
     if(is_empty())
@@ -188,3 +231,23 @@ int CircularQueue<T>::Size(){
 
 
 
+=======
+    newNode->next = NULL;
+    newNode->prev = NULL;
+    if(is_empty()){
+        current=newNode;
+    }
+    else{
+        current->prev = newNode;
+    }
+}
+
+// template<class T>
+// CircularQueue<T>::CircularQueue(CircularQueue<T> & cq){
+//     node *newNode;
+//     node *currenttmp;
+//     if(current != NULL){
+
+//     }
+// }
+>>>>>>> 1c5b46782265b9a3a71cd679feedf0a2ce857522
