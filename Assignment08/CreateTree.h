@@ -85,7 +85,7 @@ class BinaryNode : public AbstractNode {
             cout<<right->eval();
         };
 		void printOperator(){
-			cout<<op;
+			cout<<op<<endl;
 		}
         int getPrecendence(){
             switch(op){

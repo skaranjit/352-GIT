@@ -5,11 +5,12 @@ using namespace std;
 
 int main() {
     Token t;
-    AbstractNode * tree = new PlaceholderNode();
-    AbstractNode * current = new PlaceholderNode(); 
-    cout << current->parent <<endl;
+    AbstractNode * tree;
+    AbstractNode * current,*tmp;
+    //cout<<current->eval();
+    //cout << current <<endl;
     AbstractNode *ph = new PlaceholderNode(); 
-    AbstractNode *tmp;
+   AbstractNode * right = new LeafNode(2);
     UnaryAbstractNode * param , *tmp2;
     int ct =0;
     // *left, *right, *tmp;
@@ -20,13 +21,30 @@ int main() {
     while (t.Valid()){
         cout << "token: "<<t<<endl;
         if(t.IsOperand()){
-            // cout<< current<<endl;
-            tmp = current->parent;
-            current = new LeafNode(t.Operand());
+            // cout<< current<<endl
+            tmp = new LeafNode(t.Operand());
+            if (current == 0){
+                cout << "Yes";
+                current = tmp;
+            }
+            else{
+                //tmp->parent = current->parent;
+                //cout << current->eval();
+                // LeafNode tmp(t.Operand());
+                tmp->parent = current->parent;
+                
+                current = tmp;
+                current->parent = tmp->parent;
+                right = tmp;
+               //current->parent = tree;
+               //cout << current->eval();
+               
+            }
+            // LeafNode curernt(t.Operand());
+           // current = tmp;
             //cout << ph <<endl;
             //current = ph;
-            current->parent = tmp;
-            cout<<current->eval();
+            //cout<<current->eval();
             cout << "Current Parent:"<<current->parent << endl;
             
             cout << "Current:"<<current<<endl;
@@ -74,12 +92,12 @@ int main() {
           cout << "Current Parent:"<<current->parent << endl;
         }
         else if(t.IsOperator()){
-            AbstractNode * left=new LeafNode(2);
-            AbstractNode * right = new PlaceholderNode();
-            BinaryNode * op ;
+            AbstractNode * left;
+            
+            AbstractNode * op ;
             bool x = true;
             while (x == true){
-                if(current->parent == 0 || t.Operator() == '^' || current == param  ){
+                if(current->parent == 0 || t.Operator() == '^' || current == param ){
                     cout << "True and exit";
                     x = false;
                 }
@@ -89,19 +107,23 @@ int main() {
             }
            
             left = current;
+            tmp = current->parent;
 
-           op = new BinaryNode(left,right,t.Operator());
+           current = new BinaryNode(left,right,t.Operator());
             //op->parent = current->parent;
             // cout<<op->parent<<endl;
             // cout<<right->parent<<endl;
-
+           // cout << "Current:"<<current->eval()<<endl;
             // cout << left->parent<<endl;
             // cout<<left->eval()<<endl;
             // cout<<right<<endl;
-            current = right;
-            current->parent = op;
-            op->printLeft();
-            op->printOperator();
+            //current->parent = tmp;
+          // /./ op.parent = tmp;
+          current->parent = tmp;
+           current = right;
+            // current->parent = op;
+            // op->printLeft();
+            // op->printOperator();
             //cout << op->eval();
             cout << "Current Parent:"<<current->parent << endl;
             
@@ -113,14 +135,12 @@ int main() {
 
     }
     while(current->parent != 0){
-        cout << current<<endl;
+        //cout << current->eval()<<endl;
         current = current->parent;
         
     }
-	cout << current<<endl;
-	AbstractNode * result;
-    result = current;
-    cout << result->eval();
+	cout << current->eval()<<endl;
+	
 
 
 	return 0;
