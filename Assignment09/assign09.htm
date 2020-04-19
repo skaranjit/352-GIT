@@ -1,0 +1,130 @@
+<html>
+<body>
+<h1>CSIS 352 Spring 2020 Assignment 9</h1>
+<h2>Introduction</h2>
+<p>
+In this assignment, you will work with a Graph class, and implement some methods on it.
+<p>
+You will want to read Chapter 20 (the chapter on Graphs as ADTs) from the Malik textbook first. You will want to post any questions that you have to the discussion forum, and the instructor (and/or a classmate) will make it a point to respond to your questions.
+<p>
+For a quick reference on graph terminology, you may want to refer to <a href="https://en.wikipedia.org/wiki/Graph_theory">Graph theory on Wikipedia</a>.
+<h2>Purpose and Objectives</h2>
+<p>
+The purpose of the code is threefold:
+<ol>
+<li>to implement some methods associated with a graph class</li>
+<li>to write code that shows those methods being used (and thus shows your understanding of what they're supposed to do)</li>
+<li>to be a proper Makefile</li>
+</ol>
+<p>
+The purpose of having you do this as an assignment is to ensure that you can correctly do the following:
+<ul>
+<li>work with the Standard Template Library (STL)</li>
+<li>work with graphs</li>
+<li>reformulate an abstract mathematical concept (graphs) into code</li>
+<li>reformulate one implementation (the book's implementation of a graph) into a different implementation (the header that I provided for you to use)</li>
+</ul>
+<h2>Stakeholders</h2>
+<p>
+You:
+This is the beginning of some understanding of some other concepts, and could be quite useful if you were to extend it further.
+<p>
+Me:
+<ul>
+<li>This covers some key concepts that you need exposure to</li>
+<li>My dissertation topic was graph theory. I've looked at a bunch of graph classes out there and none of them quite fit my goals if I were to further my research. I believe that this would be a good start towards heading towards that, and thought it would be nice to use you all as guinea pigs to test this way out.</li>
+</ul>
+<h2>Where</h2>
+<p>
+This will be tested on smaug, and must execute there.
+<h2>Tasks</h2>
+The following files are provided for you:
+<ul>
+<li>Resources common to previous assignments</li>
+<li>Textbook, Chapter 20</li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_theory">Graph theory on Wikipedia</a></li>
+<li><a href="https://github.com/andrew-chen/csis352/tree/master/examples/stl">stl examples</a></li>
+<li><a href="https://en.cppreference.com/w/">https://en.cppreference.com/w/</a> (it is rather technical in nature, but it will get the precise detailed answer to your question about the STL, most of the time))</li>
+<li><a href="fpuid.h">fpuid.h</a></li>
+<li><a href="fpuid.cpp">fpuid.cpp</a></li>
+<li><a href="empty.h">empty.h</a></li>
+<li><a href="graph.h">graph.h</a></li>
+<li><a href="test.cpp">test.cpp</a></li>
+</ul>
+<p>
+You may only modify the test.cpp file. You may not modify any of the provided .h (fpuid.h, empty.h, or graph.h) files (except, for the graph.h, you may modify it purely to add in new method signatures, if implementing any of the extra credit methods). You may not modify any of the provided .cpp (fpuid.cpp) files (except, as mentioned, you may modify test.cpp). You may write as many new .h or .cpp files as you feel like.
+<p>
+You may structure your code in any way you want, with as few or as many .cpp or .h files as you see fit. You must have the following:
+<ul>
+<li>A README that explains how to run your program and what to expect from it</li>
+<li>A makefile that supports the following:
+<ul>
+<li>make</li>
+<li>make clean</li>
+<li>make test</li>
+</ul>
+</li>
+<li>
+It is expected that I should be able to type "make clean; make; make test" and then have your program run as you say it should in your README file.
+</li>
+</ul>
+
+</ul>
+<p>
+If there are bizarre situations that you realize certain methods may find themselves in, then 
+have them throw appropriate exceptions
+(see <a href="https://github.com/andrew-chen/csis352/tree/master/examples/exception">
+https://github.com/andrew-chen/csis352/tree/master/examples/exception</a>
+for examples of appropriate exceptions and how to throw them).
+<p>
+It is your responsibility to figure out how to test whatever code you write.
+<h2>Milestones and Schedule</h2>
+<ol>
+<li>End of the day on April 8: Understand the project:
+read through everything and be sure you have an understanding of how to do the assignment,
+asking any questions that you can think of during class
+</li>
+<li>End of the day on April 15::
+Do your best to complete the assignment without assistance from anyone/anything
+aside from provided resources.
+</li>
+<li>During the days between April 16 and April 21:
+Get whatever additional assistance you need from the instructor
+to complete the assignment.
+</li>
+<li>End of the day on the day this is due (April 22): submit the assignment appropriately.
+</li>
+</ol>
+<h2>Deliverables</h2>
+<p>
+A tar'd and gz'd file that consists of the files that you wrote,
+and sufficient files provided to build it.
+Follow the submission and documentation instructions that have been common to all previous assignments.
+<h2>Standards and Testing</h2>
+<p>
+<ul>
+<li>Your program should instantiate multiple Graph objects. It should call those methods that you have implemented. It should call methods as appropriate to verify that those methods that you implemented worked. It should output as it is doing these, to show that it works. The output should not be in the method implementations, but in the code that calls/tests them.
+</li><li>
+You may use anything from the STL as you see fit.
+</li><li>
+Your code will be tested in the directory you submit with the files you submit.
+</li><li>
+If you make any assumptions about input,
+be sure to document those assumptions in your README and throw exceptions as appropriate, and catch them too and provide meaningful output when doing so.
+</li>
+</ul>
+<h2>Known Issues and Risks</h2>
+<ul>
+<li>Not understanding the STL</li>
+<li>Memory leaks</li>
+<li>Dangling pointers</li>
+</ul>
+<h2>Success</h2>
+<p>
+Success will involve properly submitted deliverables passing all of the tests.
+<h2>Remaining</h2>
+<p>
+If there are any details not covered in this document, please ask the instructor.
+</body>
+</html>
+
