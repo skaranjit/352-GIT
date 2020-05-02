@@ -11,6 +11,7 @@ class AbstractNode {
 		virtual double eval() = 0;
 		AbstractNode() {};
 		virtual ~AbstractNode() {};
+		virtual string WhichNode() = 0;
 };
 
 class AbstractLeafNode : public AbstractNode{
@@ -19,6 +20,9 @@ class AbstractLeafNode : public AbstractNode{
 class PlaceholderNode : public AbstractLeafNode {
     public:
         virtual double eval() {assert(0); return 0.0;};
+		string WhichNode() {
+			return "PlaceHolder";
+		}
 };
 class LeafNode : public AbstractLeafNode {
 	private:
@@ -27,6 +31,9 @@ class LeafNode : public AbstractLeafNode {
 		LeafNode(double d) : value(d) {};
 		~LeafNode() {};
 		double eval() {return value;};
+		string WhichNode(){
+			return "LeafNode";
+		}
 };
 class UnaryAbstractNode : public AbstractNode {
     public:
@@ -40,6 +47,9 @@ class ParentheisNode : public UnaryAbstractNode {
         };
         ~ParentheisNode() { delete child;};
         virtual double eval() {return (child->eval());};
+		string WhichNode(){
+			return "Param";
+		}
 
 };
 class UnaryMinusNode : public UnaryAbstractNode {
@@ -49,7 +59,10 @@ class UnaryMinusNode : public UnaryAbstractNode {
             child->parent = this;
         };
 		~UnaryMinusNode() {delete child;};
-		virtual double eval() {return ((-1.0)*child->eval());};
+		double eval() {return ((-1.0)*child->eval());};
+		string WhichNode(){
+			return "Minus";
+		}
 };
 class BinaryNode : public AbstractNode {
 	private:
@@ -63,6 +76,9 @@ class BinaryNode : public AbstractNode {
             right->parent = this;
             precedence = getPrecendence();
         };
+		string WhichNode(){
+			return "Binary";
+		}
 		~BinaryNode() {delete left; delete right;};
 		virtual double eval() {
 			switch(op) {
@@ -78,6 +94,15 @@ class BinaryNode : public AbstractNode {
 					return 0;
 			};
         };
+		char getOperator(){
+			return op;
+		}
+		AbstractNode * getLeft(){
+			return left;
+		};
+		AbstractNode * getRight(){
+			return right;
+		};
         void printLeft(){
             cout<<left->eval();
         };
@@ -86,6 +111,15 @@ class BinaryNode : public AbstractNode {
         };
 		void printOperator(){
 			cout<<op<<endl;
+		}
+		void ChangeRight(AbstractNode * m) {
+			right = m;
+		}
+		void ChangeOperator(char c){
+			op = c;
+		}
+		void ChangeLeft(AbstractNode * m) {
+			left = m;
 		}
         int getPrecendence(){
             switch(op){
